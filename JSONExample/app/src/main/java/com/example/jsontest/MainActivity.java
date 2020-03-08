@@ -29,11 +29,14 @@ public class MainActivity extends AppCompatActivity {
                 JSONObject obj = jsonArry.getJSONObject(i);
                 hashMapUser.put("name",obj.getString("name"));
                 hashMapUser.put("designation",obj.getString("designation"));
+                //Added new key - value pair: department
+                hashMapUser.put("department", obj.getString("department"));
                 hashMapUser.put("location",obj.getString("location"));
                 userList.add(hashMapUser);
             }
+            //added connection between department section in the listrow.xml and listview in the activity_main
             ListAdapter adapter = new SimpleAdapter(MainActivity.this, userList, R.layout.listrow,
-                    new String[]{"name","designation","location"}, new int[]{R.id.name, R.id.designation, R.id.location});
+                    new String[]{"name","designation", "department","location"}, new int[]{R.id.name, R.id.designation, R.id.department, R.id.location});
             lv.setAdapter(adapter);
         }
         catch (JSONException ex){
@@ -41,10 +44,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     private String getListData() {
+        //Added Department section in the json object
         String jsonStr = "{ \"users\" :[" +
-                "{\"name\":\"Ritesh Kumar\",\"designation\":\"Team Leader\",\"location\":\"Brampton\"}" +
-                ",{\"name\":\"Frank Lee\",\"designation\":\"Developer\",\"location\":\"Markham\"}" +
-                ",{\"name\":\"Arthur Young\",\"designation\":\"Charted Accountant\",\"location\":\"Toronto\"}] }";
+                "{\"name\":\"Ritesh Kumar\",\"designation\":\"Team Leader\",\"department\":\"Main office\",\"location\":\"Brampton\"}" +
+                ",{\"name\":\"Frank Lee\",\"designation\":\"Developer\",\"department\":\"Developer's office\",\"location\":\"Markham\"}" +
+                ",{\"name\":\"Arthur Young\",\"designation\":\"Charted Accountant\",\"department\":\"Account office\",\"location\":\"Toronto\"}] }";
         return jsonStr;
     }
 }
