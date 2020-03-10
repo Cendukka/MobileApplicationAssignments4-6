@@ -7,12 +7,70 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/appTitle"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="@string/medical_tests"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="425dp"
+        android:layout_height="524dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appTitle">
+
+        <Button
+            android:id="@+id/loginActButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#2196F3"
+            android:text="@string/login"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/addPatientActButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#03A9F4"
+            android:text="@string/patient_activity"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/createTestActButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#2196F3"
+            android:text="@string/test_activity"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/viewTestActButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#03A9F4"
+            android:text="@string/test_info_activity"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/updateTestActButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="#2196F3"
+            android:text="@string/update_info"
+            android:textStyle="italic" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
