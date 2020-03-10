@@ -6,26 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="10pt"
-        android:textColor="#444444"
-        android:layout_alignParentLeft="true"
-        android:layout_marginRight="9dip"
-        android:layout_marginTop="20dip"
-        android:layout_marginLeft="10dip"
-        android:text="Sleep time in Seconds:"/>
     <EditText
         android:id="@+id/in_time"
         android:layout_width="150dip"
         android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@id/tv_time"
         android:layout_alignTop="@id/tv_time"
-        android:inputType="number"
-        />
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@id/tv_time"
+        android:background="@android:drawable/editbox_background"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_name"
+        android:ems="15"
+        android:layout_toRightOf="@id/tv_name"
+        android:background="@android:drawable/editbox_background"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="40dip"
+        android:layout_marginRight="9dip"
+        android:text="Sleep time in Seconds:"
+        android:textColor="#444444"
+        android:textSize="10pt" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="7pt"
+        android:layout_below="@+id/btn_run"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="6dip"
+        android:layout_marginRight="9dip"
+        android:text="Name:"
+        android:textColor="#444444"
+        android:textSize="10pt" />
+
     <Button
         android:id="@+id/btn_run"
         android:layout_width="wrap_content"
@@ -34,12 +67,6 @@
         android:layout_below="@+id/in_time"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp" />
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="7pt"
-        android:layout_below="@+id/btn_run"
-        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

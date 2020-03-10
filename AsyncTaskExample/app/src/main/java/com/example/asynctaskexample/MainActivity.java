@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
     private Button button;
     private EditText time;
+    private EditText name;
     private TextView finalResult;
 
     @Override
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         time = (EditText) findViewById(R.id.in_time);
+        name = (EditText) findViewById(R.id.et_name);
         button = (Button) findViewById(R.id.btn_run);
         finalResult = (TextView) findViewById(R.id.tv_result);
         button.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
-        private String resp;
+        public String resp;
         ProgressDialog progressDialog;
 
         @Override
@@ -43,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
                 int time = Integer.parseInt(params[0])*1000;
 
                 Thread.sleep(time);
-                resp = "Slept for " + params[0] + " seconds";
+                resp = name.getText().toString();
+                //resp = "Slept for " + params[0] + " seconds";
             } catch (InterruptedException e) {
                 e.printStackTrace();
                 resp = e.getMessage();
