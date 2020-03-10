@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="5dip">
+    android:padding="15dip">
 
     <TextView
         android:id="@+id/name"
@@ -17,7 +17,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
-        android:layout_marginTop="7dp"
+        android:textColor="#343434"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/designation"
         android:textColor="#343434"
         android:textSize="14dp" />
 
@@ -25,8 +32,8 @@
         android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/designation"
-        android:layout_alignBottom="@+id/designation"
+        android:layout_alignBaseline="@+id/department"
+        android:layout_alignBottom="@+id/department"
         android:layout_alignParentRight="true"
         android:textColor="#343434"
         android:textSize="14dp" />
