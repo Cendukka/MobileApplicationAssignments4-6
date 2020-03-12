@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bacteria">
+
+    <TextView
+        android:id="@+id/appLoginTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/medical_tests_login"
+        android:textAlignment="center"
+        android:textColor="#FF4343"
+        android:textSize="29sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/medical_tests_login_info"
+        android:textAlignment="center"
+        android:textColor="#FA4B00"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/idLoginField"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/loginIdFieldHint"
+        android:inputType="number"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/loginFieldPassword"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/loginFieldPasswordHint"
+        android:inputType="textPassword"
+        android:textAlignment="center"/>
+
+    <ImageButton
+        android:id="@+id/logInButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0E2493"
+        android:textAlignment="textEnd"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:onClick="nurseLogin"/>
+
+    <TextView
+        android:id="@+id/registerUserText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/register_yourself_text"
+        android:textAlignment="center"
+        android:textColor="#FA4B00"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/idRegisterField"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/loginIdFieldHint"
+        android:inputType="number"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/registerFieldPassword"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/loginFieldPasswordHint"
+        android:inputType="textPassword"
+        android:textAlignment="center"/>
+    <EditText
+        android:id="@+id/registerFirstNameField"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/first_name"
+        android:inputType="text"
+        android:textAlignment="center"/>
+    <EditText
+        android:id="@+id/registerLastNameField"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/last_name"
+        android:inputType="text"
+        android:textAlignment="center"/>
+    <EditText
+        android:id="@+id/registerDepartmentField"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="@string/department"
+        android:inputType="text"
+        android:textAlignment="center"/>
+
+    <ImageButton
+        android:id="@+id/registerButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0E2493"
+        android:textAlignment="textEnd"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:onClick="createNewNurse"/>
+
+
+</LinearLayout>
+
+
