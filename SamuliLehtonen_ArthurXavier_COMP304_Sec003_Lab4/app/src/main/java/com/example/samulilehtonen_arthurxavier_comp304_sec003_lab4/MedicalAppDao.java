@@ -22,4 +22,10 @@ public interface MedicalAppDao {
     @Query("select * from nurse")
     public List<Nurse> getNurses();
 
+    @Query("select * from patient")
+    public List<Patient> getPatients();
+
+    @Query("select * from test")
+    public List<Test> getTests();
+
 }

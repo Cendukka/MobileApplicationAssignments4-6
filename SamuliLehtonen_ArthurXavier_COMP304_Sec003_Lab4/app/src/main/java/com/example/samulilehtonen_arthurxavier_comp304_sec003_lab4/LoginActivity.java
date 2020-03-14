@@ -58,8 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         //Load preferenced variables and assign id to the login
         getPreferenceData();
         nurseIdLogin.setText(Integer.toString(prefVarNurseID));
-
-
     }
 
     @Override
@@ -169,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
     //this method will save the data,
-    // that needs to be shared preference variable during succesfull login
+    // that needs to be shared preference variable during successful login
     public void savePreferenceData(int saveNurseId, String saveNursePassword){
         SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
