@@ -3,6 +3,7 @@ package com.example.samulilehtonen_arthurxavier_comp304_sec003_lab4;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ public class  UpdateInfoActivity extends AppCompatActivity {
 
     EditText updPatientId, updFirstName, updLastName, updDept, updNurseId, updRoom;
     ImageButton updatePatientButton, retrievePatientButton;
+    List<Patient> patients;
 
     public static MedicalDatabase medicalDatabase;
 
@@ -40,6 +42,7 @@ public class  UpdateInfoActivity extends AppCompatActivity {
     }
 
     //This method will display the information for a given patient ID
+    @SuppressLint("SetTextI18n")
     public void retrievePatient(View view){
 
         //to check if the given ID is assigned to a patient
@@ -51,14 +54,14 @@ public class  UpdateInfoActivity extends AppCompatActivity {
         for(Patient patient : patients){
             //condition to display the info if id is found
             if (patient.getId() == Integer.parseInt(updPatientId.getText().toString())){
-
+                System.out.println("LOL");
                 updPatient = patient.getId();
 
                 updFirstName.setText(patient.getFirst_name());
                 updLastName.setText(patient.getLast_name());
                 updDept.setText(patient.getDepartment());
-                updNurseId.setText(patient.getNurse_id());
-                updRoom.setText(patient.getRoom());
+                updNurseId.setText(Integer.toString(patient.getNurse_id()));
+                updRoom.setText(Integer.toString(patient.getRoom()));
 
                 patientExists = true;
                 break;
@@ -85,6 +88,8 @@ public class  UpdateInfoActivity extends AppCompatActivity {
             patient.setDepartment(updDept.getText().toString());
             patient.setNurse_id(Integer.parseInt(updNurseId.getText().toString()));
             patient.setRoom(Integer.parseInt(updRoom.getText().toString()));
+            //updates patients information
+            medicalDatabase.medicalAppDao().updatePatient(patient);
 
             //Clear the fields
             updPatientId.getText().clear();

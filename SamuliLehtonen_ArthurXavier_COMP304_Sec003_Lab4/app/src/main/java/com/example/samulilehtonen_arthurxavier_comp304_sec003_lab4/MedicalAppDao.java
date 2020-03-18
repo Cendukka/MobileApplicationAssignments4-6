@@ -7,6 +7,7 @@ package com.example.samulilehtonen_arthurxavier_comp304_sec003_lab4;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -14,6 +15,8 @@ import java.util.List;
 public interface MedicalAppDao {
     @Insert
     public void addPatient(Patient patient);
+    @Update
+    public void updatePatient(Patient patient);
     @Insert
     public void addTest(Test test);
     @Insert
