@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/testInfoPatientID"
+        android:id="@+id/txtTestInfoPatientId"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -35,15 +35,16 @@
         android:textAlignment="center" />
 
     <ImageButton
-        android:id="@+id/retrieveTestInfo"
+        android:id="@+id/btnTestInfoRetrieve"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#0E2493"
         android:textAlignment="textEnd"
-        app:srcCompat="@android:drawable/ic_menu_send" />
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:onClick="retrieveTest"/>
 
     <TextView
-        android:id="@+id/testInformation"
+        android:id="@+id/tviewTestInfo"
         android:layout_width="350dp"
         android:layout_height="500dp"
         android:layout_marginTop="20dp"

@@ -16,6 +16,7 @@ import static java.lang.Integer.parseInt;
 
 public class TestActivity extends AppCompatActivity {
 
+    //Declarations
     EditText testId, patientId, nurseId, testName, sugarLevel, temperature;
     CheckBox bpl, bph, flu;
     ImageButton registerTestButton;
@@ -29,21 +30,23 @@ public class TestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        testId = (EditText) findViewById(R.id.testId);
-        patientId = (EditText) findViewById(R.id.testPatientId);
-        nurseId = (EditText) findViewById(R.id.testNurseId);
-        testName = (EditText) findViewById(R.id.testName);
-        sugarLevel = (EditText) findViewById(R.id.testSugarLevel);
-        temperature = (EditText) findViewById(R.id.testTemperature);
-        registerTestButton = (ImageButton) findViewById(R.id.registerTestInfo);
-        bpl = (CheckBox) findViewById(R.id.testBPL);
-        bph = (CheckBox) findViewById(R.id.testBPH);
-        flu = (CheckBox) findViewById(R.id.testFLU);
+        //Initializations
+        testId = (EditText) findViewById(R.id.txtTestId);
+        patientId = (EditText) findViewById(R.id.txtTestPatientId);
+        nurseId = (EditText) findViewById(R.id.txtTestNurseId);
+        testName = (EditText) findViewById(R.id.txtTestName);
+        sugarLevel = (EditText) findViewById(R.id.txtTestSugarLevel);
+        temperature = (EditText) findViewById(R.id.txtTestTemperature);
+        bpl = (CheckBox) findViewById(R.id.cboxTestBPL);
+        bph = (CheckBox) findViewById(R.id.cboxTestBPH);
+        flu = (CheckBox) findViewById(R.id.cboxTestFLU);
+        registerTestButton = (ImageButton) findViewById(R.id.btnTestRegister);
 
         //Assign Database
         medicalDatabase = Room.databaseBuilder(getApplicationContext(), MedicalDatabase.class, "MedicalDB").allowMainThreadQueries().build();
     }
 
+    //Methods to assign whether exams were taken or not
     public void onBplChecked(View view){
         bplChecked = true;
     }
@@ -54,26 +57,27 @@ public class TestActivity extends AppCompatActivity {
         fluChecked = true;
     }
 
-    public void enterTestInformation(View view){
+    //Method to register a test
+    public void registerTestInfo(View view){
         //Get values of the EditText fields
-        String testId = this.testId.getText().toString();
-        String patientId = this.patientId.getText().toString();
-        String nurseId = this.nurseId.getText().toString();
-        String testName = this.testName.getText().toString();
-        String sugarLevel = this.sugarLevel.getText().toString();
-        String temperature = this.temperature.getText().toString();
+        String strTestId = testId.getText().toString();
+        String strPatientId = patientId.getText().toString();
+        String strNurseId = nurseId.getText().toString();
+        String strTestName = testName.getText().toString();
+        String strSugarLevel = sugarLevel.getText().toString();
+        String strTemperature = temperature.getText().toString();
 
         //Bool for checking if testId is taken
         boolean testIdTaken = false;
         //Check all fields are filled
-        if (!testId.equals("") && !patientId.equals("") && !nurseId.equals("") && !testName.equals("") && !sugarLevel.equals("") && !temperature.equals("")) {
-            int tempTestId = parseInt(testId);
+        if (!strTestId.equals("") && !strPatientId.equals("") && !strNurseId.equals("") && !strTestName.equals("") && !strSugarLevel.equals("") && !strTemperature.equals("")) {
+            int tempTestId = parseInt(strTestId);
             //check that test ID is unique
             List<Test> tests = medicalDatabase.medicalAppDao().getTests();
             for (Test test : tests) {
                 int usedID = test.getId();
                 System.out.println(usedID);
-                System.out.println(nurseId);
+                System.out.println(strTestId);
                 if (tempTestId == usedID) {
                     System.out.println(testIdTaken);
                     testIdTaken = true;
@@ -81,16 +85,17 @@ public class TestActivity extends AppCompatActivity {
                 }
             }
             System.out.println(testIdTaken);
-            //If given nurse id is unique
+            //If given test id is unique
             if (!testIdTaken) {
-                //create nurse object
+                //create test object
                 Test testObj = new Test();
+
                 testObj.setId(tempTestId);
-                testObj.setPatient_id(patientId);
-                testObj.setNurse_id(nurseId);
-                testObj.setTest_name(testName);
-                testObj.setSugar_level(parseInt(sugarLevel));
-                testObj.setTemperature(parseInt(temperature));
+                testObj.setPatient_id(strPatientId);
+                testObj.setNurse_id(parseInt(strNurseId));
+                testObj.setTest_name(strTestName);
+                testObj.setSugar_level(parseInt(strSugarLevel));
+                testObj.setTemperature(parseInt(strTemperature));
 
                 if(bplChecked){
                     testObj.setBpl(true);
@@ -107,15 +112,15 @@ public class TestActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Test Added successfully", Toast.LENGTH_LONG).show();
 
                 //clear the register textFields
-                this.testId.getText().clear();
-                this.patientId.getText().clear();
-                this.nurseId.getText().clear();
-                this.testName.getText().clear();
-                this.sugarLevel.getText().clear();
-                this.temperature.getText().clear();
+                testId.getText().clear();
+                patientId.getText().clear();
+                nurseId.getText().clear();
+                testName.getText().clear();
+                sugarLevel.getText().clear();
+                temperature.getText().clear();
 
             } else {
-                Toast.makeText(getApplicationContext(), "NurseID already taken!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Test ID already taken!", Toast.LENGTH_LONG).show();
             }
         } else {
             Toast.makeText(getApplicationContext(), "Fill all fields!", Toast.LENGTH_LONG).show();

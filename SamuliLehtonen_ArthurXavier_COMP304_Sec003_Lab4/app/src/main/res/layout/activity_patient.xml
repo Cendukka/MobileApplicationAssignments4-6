@@ -18,16 +18,80 @@
         android:textColor="#FF4343"
         android:textSize="29sp" />
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="com.example.samulilehtonen_arthurxavier_comp304_sec003_lab4.PatientInfoMenu"
-        android:layout_width="match_parent"
-        android:layout_height="92dp" />
+    <EditText
+        android:id="@+id/txtPatientId"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="Patient ID"
+        android:inputType="number"
+        android:textAlignment="center" />
 
-    <fragment
-        android:id="@+id/fragment2"
-        android:name="com.example.samulilehtonen_arthurxavier_comp304_sec003_lab4.PatientInfoAction"
-        android:layout_width="match_parent"
-        android:layout_height="600dp" />
+    <EditText
+        android:id="@+id/txtPatientFirstName"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtPatientLastName"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtPatientDept"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="Department"
+        android:inputType="textPersonName"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtPatientNurseId"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="Nurse ID"
+        android:inputType="number"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/txtPatientRoom"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="Room"
+        android:inputType="number"
+        android:textAlignment="center" />
+
+    <ImageButton
+        android:id="@+id/btnPatientRegister"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0E2493"
+        android:textAlignment="textEnd"
+        android:onClick="registerPatient"
+        app:srcCompat="@android:drawable/ic_menu_send" />
 
 </LinearLayout>

@@ -40,17 +40,17 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //initialize views login
-        nurseIdLogin = (EditText) findViewById(R.id.idLoginField);
-        nursePasswordLogin = (EditText) findViewById(R.id.loginFieldPassword);
-        loginButton = (ImageButton) findViewById(R.id.logInButton);
+        nurseIdLogin = (EditText) findViewById(R.id.txtLoginNurseId);
+        nursePasswordLogin = (EditText) findViewById(R.id.txtLoginPassword);
+        loginButton = (ImageButton) findViewById(R.id.btnLogin);
 
         //initialize views register
-        nurseIdRegister = (EditText) findViewById(R.id.idRegisterField);
-        nursePasswordRegister = (EditText) findViewById(R.id.registerFieldPassword);
-        nurseFirstName = (EditText) findViewById(R.id.registerFirstNameField);
-        nurseLastName = (EditText) findViewById(R.id.registerLastNameField);
-        nurseDepartment = (EditText) findViewById(R.id.registerDepartmentField);
-        registerButton = (ImageButton) findViewById(R.id.registerButton);
+        nurseIdRegister = (EditText) findViewById(R.id.txtRegisterNurseId);
+        nursePasswordRegister = (EditText) findViewById(R.id.txtRegisterNursePassword);
+        nurseFirstName = (EditText) findViewById(R.id.txtRegisterFirstName);
+        nurseLastName = (EditText) findViewById(R.id.txtRegisterLastName);
+        nurseDepartment = (EditText) findViewById(R.id.txtRegisterDept);
+        registerButton = (ImageButton) findViewById(R.id.btnRegister);
 
         //Assign Database
         medicalDatabase = Room.databaseBuilder(getApplicationContext(), MedicalDatabase.class, "MedicalDB").allowMainThreadQueries().build();

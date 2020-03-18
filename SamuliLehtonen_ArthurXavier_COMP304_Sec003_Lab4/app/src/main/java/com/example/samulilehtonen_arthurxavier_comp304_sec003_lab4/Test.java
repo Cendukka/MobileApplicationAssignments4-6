@@ -18,7 +18,7 @@ public class Test {
     @ColumnInfo(name = "test_id")
     private int id;
     private String patient_id;
-    private String nurse_id;
+    private int nurse_id;
     private String test_name;
     private int sugar_level;
     private boolean bpl;
@@ -42,10 +42,10 @@ public class Test {
         this.patient_id = patient_id;
     }
 
-    public String getNurse_id() {
+    public int getNurse_id() {
         return nurse_id;
     }
-    public void setNurse_id(String nurse_id) {
+    public void setNurse_id(int nurse_id) {
         this.nurse_id = nurse_id;
     }
 

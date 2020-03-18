@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/updtPatientID"
+        android:id="@+id/txtUpdtPatientID"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginTop="25dp"
@@ -34,10 +34,20 @@
         android:inputType="number"
         android:textAlignment="center" />
 
+    <ImageButton
+        android:id="@+id/btnGetPatient"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#0E2493"
+        android:textAlignment="textEnd"
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:onClick="retrievePatient"/>
+
     <EditText
-        android:id="@+id/updtPatientFName"
+        android:id="@+id/txtUpdtPatientFirstName"
         android:layout_width="200dp"
         android:layout_height="35dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
         android:background="#ffffff"
         android:ems="10"
@@ -46,7 +56,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/updtPatientLName"
+        android:id="@+id/txtUpdtPatientLastName"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -57,7 +67,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/updtPatientDept"
+        android:id="@+id/txtUpdtPatientDept"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -68,7 +78,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/updtNurseID"
+        android:id="@+id/txtUpdtNurseId"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -79,22 +89,23 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/updtPatientRoom"
+        android:id="@+id/txtUpdtPatientRoom"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
         android:background="#ffffff"
         android:ems="10"
         android:hint="Room Number"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textAlignment="center" />
 
     <ImageButton
-        android:id="@+id/updtPatient"
+        android:id="@+id/btnUpdtPatient"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#0E2493"
         android:textAlignment="textEnd"
-        app:srcCompat="@android:drawable/ic_menu_send" />
+        app:srcCompat="@android:drawable/ic_menu_send"
+        android:onClick="updatePatientInfo"/>
 
 </LinearLayout>

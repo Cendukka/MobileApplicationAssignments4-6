@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/testId"
+        android:id="@+id/txtTestId"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginTop="25dp"
@@ -35,7 +35,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/testPatientId"
+        android:id="@+id/txtTestPatientId"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -46,7 +46,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/testNurseId"
+        android:id="@+id/txtTestNurseId"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -57,7 +57,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/testName"
+        android:id="@+id/txtTestName"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -68,7 +68,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/testSugarLevel"
+        android:id="@+id/txtTestSugarLevel"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -79,7 +79,7 @@
         android:textAlignment="center" />
 
     <EditText
-        android:id="@+id/testTemperature"
+        android:id="@+id/txtTestTemperature"
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:layout_marginBottom="10dp"
@@ -96,7 +96,7 @@
         android:gravity="center_horizontal">
 
         <CheckBox
-            android:id="@+id/testBPL"
+            android:id="@+id/cboxTestBPL"
             android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:buttonTint="#ffffff"
@@ -105,7 +105,7 @@
             android:onClick="onBplChecked"/>
 
         <CheckBox
-            android:id="@+id/testBPH"
+            android:id="@+id/cboxTestBPH"
             android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:buttonTint="#ffffff"
@@ -114,7 +114,7 @@
             android:onClick="onBphChecked"/>
 
         <CheckBox
-            android:id="@+id/testFLU"
+            android:id="@+id/cboxTestFLU"
             android:layout_width="85dp"
             android:layout_height="wrap_content"
             android:buttonTint="#ffffff"
@@ -124,11 +124,12 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/registerTestInfo"
+        android:id="@+id/btnTestRegister"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#0E2493"
         android:textAlignment="textEnd"
+        android:onClick="registerTestInfo"
         app:srcCompat="@android:drawable/ic_menu_send" />
 
 
