@@ -40,7 +40,7 @@ public class ViewTestInfoActivity extends AppCompatActivity {
         List<Test> tests = medicalDatabase.medicalAppDao().getTests();
 
         for(Test test : tests){
-            if (test.getPatient_id() == patientId.getText().toString()){
+            if (test.getPatient_id().equals(patientId.getText().toString())){
                 if(test.isBph()){
                     bph = "Yes";
                 } else {
