@@ -69,11 +69,35 @@ public class TestActivity extends AppCompatActivity {
 
         //Bool for checking if testId is taken
         boolean testIdTaken = false;
+        boolean patientIdValid = false;
+        boolean nurseIdValid = false;
         //Check all fields are filled
         if (!strTestId.equals("") && !strPatientId.equals("") && !strNurseId.equals("") && !strTestName.equals("") && !strSugarLevel.equals("") && !strTemperature.equals("")) {
             int tempTestId = parseInt(strTestId);
-            //check that test ID is unique
+            int tempPatientId = parseInt(strPatientId);
+            int tempNurseId = parseInt(strNurseId);
+
+            List<Patient> patients = medicalDatabase.medicalAppDao().getPatients();
+            List<Nurse> nurses = medicalDatabase.medicalAppDao().getNurses();
             List<Test> tests = medicalDatabase.medicalAppDao().getTests();
+
+            //check that patient ID is unique
+            for (Patient pat : patients) {
+                int usedPatientID = pat.getId();
+                if (tempPatientId == usedPatientID) {
+                    patientIdValid = true;
+                    break;
+                }
+            }
+            //check that the nurse id is valid
+            for (Nurse nur : nurses) {
+                int usedNurseID = nur.getId();
+                if (tempNurseId == usedNurseID) {
+                    nurseIdValid = true;
+                    break;
+                }
+            }
+            //check that test ID is unique
             for (Test test : tests) {
                 int usedID = test.getId();
                 System.out.println(usedID);
@@ -87,37 +111,45 @@ public class TestActivity extends AppCompatActivity {
             System.out.println(testIdTaken);
             //If given test id is unique
             if (!testIdTaken) {
-                //create test object
-                Test testObj = new Test();
+                if(patientIdValid){
+                    if(nurseIdValid){
+                        //create test object
+                        Test testObj = new Test();
 
-                testObj.setId(tempTestId);
-                testObj.setPatient_id(strPatientId);
-                testObj.setNurse_id(parseInt(strNurseId));
-                testObj.setTest_name(strTestName);
-                testObj.setSugar_level(parseInt(strSugarLevel));
-                testObj.setTemperature(parseInt(strTemperature));
+                        testObj.setId(tempTestId);
+                        testObj.setPatient_id(strPatientId);
+                        testObj.setNurse_id(parseInt(strNurseId));
+                        testObj.setTest_name(strTestName);
+                        testObj.setSugar_level(parseInt(strSugarLevel));
+                        testObj.setTemperature(parseInt(strTemperature));
 
-                if(bplChecked){
-                    testObj.setBpl(true);
+                        if(bplChecked){
+                            testObj.setBpl(true);
+                        }
+                        if(bphChecked){
+                            testObj.setBph(true);
+                        }
+                        if(fluChecked){
+                            testObj.setFlu(true);
+                        }
+
+                        //push it in the database
+                        medicalDatabase.medicalAppDao().addTest(testObj);
+                        Toast.makeText(getApplicationContext(), "Test Added successfully", Toast.LENGTH_LONG).show();
+
+                        //clear the register textFields
+                        testId.getText().clear();
+                        patientId.getText().clear();
+                        nurseId.getText().clear();
+                        testName.getText().clear();
+                        sugarLevel.getText().clear();
+                        temperature.getText().clear();
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Nurse ID is not valid!", Toast.LENGTH_LONG).show();
+                    }
+                }else {
+                    Toast.makeText(getApplicationContext(), "Patient ID is not valid!", Toast.LENGTH_LONG).show();
                 }
-                if(bphChecked){
-                    testObj.setBph(true);
-                }
-                if(fluChecked){
-                    testObj.setFlu(true);
-                }
-
-                //push it in the database
-                medicalDatabase.medicalAppDao().addTest(testObj);
-                Toast.makeText(getApplicationContext(), "Test Added successfully", Toast.LENGTH_LONG).show();
-
-                //clear the register textFields
-                testId.getText().clear();
-                patientId.getText().clear();
-                nurseId.getText().clear();
-                testName.getText().clear();
-                sugarLevel.getText().clear();
-                temperature.getText().clear();
 
             } else {
                 Toast.makeText(getApplicationContext(), "Test ID already taken!", Toast.LENGTH_LONG).show();
