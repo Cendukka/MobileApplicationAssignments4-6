@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -27,7 +28,8 @@ public class ViewTestInfoActivity extends AppCompatActivity {
         patientId = (EditText) findViewById(R.id.txtTestInfoPatientId);
         displayTestInfo = (TextView) findViewById(R.id.tviewTestInfo);
         retrieveTestButton = (ImageButton) findViewById(R.id.btnTestInfoRetrieve);
-
+        //set textview scrollable
+        displayTestInfo.setMovementMethod(new ScrollingMovementMethod());
         //Assign Database
         medicalDatabase = Room.databaseBuilder(getApplicationContext(), MedicalDatabase.class, "MedicalDB").allowMainThreadQueries().build();
 
@@ -64,8 +66,10 @@ public class ViewTestInfoActivity extends AppCompatActivity {
                               + "\nBPH: " + bph
                               + "\nBPL: " + bpl
                               + "\nFlu: " + flu + "\n\n";
+
+                displayTestInfo.append("Patient ID: "+ patientId.getText().toString() + "\n" + testDisplay);
             }
         }
-        displayTestInfo.setText("Patient ID: "+ patientId.getText().toString() + "\n" + testDisplay);
+
     }
 }
