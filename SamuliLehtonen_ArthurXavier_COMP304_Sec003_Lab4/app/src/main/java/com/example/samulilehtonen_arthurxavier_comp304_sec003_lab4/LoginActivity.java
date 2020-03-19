@@ -88,15 +88,12 @@ public class LoginActivity extends AppCompatActivity {
             List<Nurse> nurses = medicalDatabase.medicalAppDao().getNurses();
             for (Nurse nrs : nurses) {
                 int usedID = nrs.getId();
-                System.out.println(usedID);
-                System.out.println(nurseId);
                 if (nurseId == usedID) {
                     System.out.println(nurseIdTaken);
                     nurseIdTaken = true;
                     break;
                 }
             }
-            System.out.println(nurseIdTaken);
             //If given nurse id is unique
             if (!nurseIdTaken) {
                 //create nurse object

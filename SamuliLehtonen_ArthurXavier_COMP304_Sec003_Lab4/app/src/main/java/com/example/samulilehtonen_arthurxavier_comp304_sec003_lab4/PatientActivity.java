@@ -50,47 +50,59 @@ public class PatientActivity extends AppCompatActivity {
 
         //Bool for checking if patientId is taken
         boolean patientIdTaken = false;
+        boolean nurseIdValid = false;
 
         //Check all fields are filled
         if (!strPatientId.equals("") && !strFirstName.equals("") && !strLastName.equals("") && !strDept.equals("") && !strNurseId.equals("") && !strRoom.equals("")) {
             int tempPatientId = parseInt(strPatientId);
-            //check that patient ID is unique
+            int tempNurseId = parseInt(strNurseId);
+
             List<Patient> patients = medicalDatabase.medicalAppDao().getPatients();
+            List<Nurse> nurses = medicalDatabase.medicalAppDao().getNurses();
+            //check that patient ID is unique
             for (Patient pat : patients) {
-                int usedID = pat.getId();
-                System.out.println(usedID);
-                System.out.println(strPatientId);
-                if (tempPatientId == usedID) {
-                    System.out.println(patientIdTaken);
+                int usedPatientID = pat.getId();
+                if (tempPatientId == usedPatientID) {
                     patientIdTaken = true;
                     break;
                 }
             }
-            System.out.println(patientIdTaken);
-            //If given patient id is unique
+            //check that the nurse id is valid
+            for (Nurse nur : nurses) {
+                int usedNurseID = nur.getId();
+                if (tempNurseId == usedNurseID) {
+                    nurseIdValid = true;
+                    break;
+                }
+            }
+            //If given patient id is unique and nurseid is valid
             if (!patientIdTaken) {
-                //create patient object
-                Patient patientObj = new Patient();
+                if (nurseIdValid) {
+                    //create patient object
+                    Patient patientObj = new Patient();
 
-                patientObj.setId(tempPatientId);
-                patientObj.setFirst_name(strFirstName);
-                patientObj.setLast_name(strLastName);
-                patientObj.setDepartment(strDept);
-                patientObj.setNurse_id(parseInt(strNurseId));
-                patientObj.setRoom(parseInt(strRoom));
+                    patientObj.setId(tempPatientId);
+                    patientObj.setFirst_name(strFirstName);
+                    patientObj.setLast_name(strLastName);
+                    patientObj.setDepartment(strDept);
+                    patientObj.setNurse_id(parseInt(strNurseId));
+                    patientObj.setRoom(parseInt(strRoom));
 
-                //push it in the database
-                medicalDatabase.medicalAppDao().addPatient(patientObj);
-                Toast.makeText(getApplicationContext(), "Patient Added successfully", Toast.LENGTH_LONG).show();
+                    //push it in the database
+                    medicalDatabase.medicalAppDao().addPatient(patientObj);
+                    Toast.makeText(getApplicationContext(), "Patient Added successfully", Toast.LENGTH_LONG).show();
 
-                //clear the register textFields
-                patientId.getText().clear();
-                firstName.getText().clear();
-                lastName.getText().clear();
-                department.getText().clear();
-                nurseId.getText().clear();
-                room.getText().clear();
+                    //clear the register textFields
+                    patientId.getText().clear();
+                    firstName.getText().clear();
+                    lastName.getText().clear();
+                    department.getText().clear();
+                    nurseId.getText().clear();
+                    room.getText().clear();
 
+                } else {
+                    Toast.makeText(getApplicationContext(), "Nurse ID is not valid!", Toast.LENGTH_LONG).show();
+                }
             } else {
                 Toast.makeText(getApplicationContext(), "Patient ID already taken!", Toast.LENGTH_LONG).show();
             }
