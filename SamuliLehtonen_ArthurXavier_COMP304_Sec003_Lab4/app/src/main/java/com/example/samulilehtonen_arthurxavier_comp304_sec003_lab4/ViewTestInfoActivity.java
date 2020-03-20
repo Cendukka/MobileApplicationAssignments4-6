@@ -26,6 +26,9 @@ public class ViewTestInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_test_info);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         patientId = (EditText) findViewById(R.id.txtTestInfoPatientId);
         displayTestInfo = (TextView) findViewById(R.id.tviewTestInfo);
         retrieveTestButton = (ImageButton) findViewById(R.id.btnTestInfoRetrieve);
@@ -93,5 +96,10 @@ public class ViewTestInfoActivity extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), "Fill all fields!", Toast.LENGTH_LONG).show();
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

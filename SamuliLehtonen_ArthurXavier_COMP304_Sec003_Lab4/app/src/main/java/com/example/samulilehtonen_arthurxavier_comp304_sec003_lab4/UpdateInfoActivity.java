@@ -28,6 +28,9 @@ public class  UpdateInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_info);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         updPatientId = (EditText) findViewById(R.id.txtUpdtPatientID);
         updFirstName = (EditText) findViewById(R.id.txtUpdtPatientFirstName);
         updLastName = (EditText) findViewById(R.id.txtUpdtPatientLastName);
@@ -104,5 +107,10 @@ public class  UpdateInfoActivity extends AppCompatActivity {
             //If all the fields are not filled, display the message
             Toast.makeText(getApplicationContext(), "All fields must be filled!", Toast.LENGTH_LONG).show();
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

@@ -21,6 +21,7 @@
         <activity android:name=".TestActivity" />
         <activity android:name=".PatientActivity" />
         <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

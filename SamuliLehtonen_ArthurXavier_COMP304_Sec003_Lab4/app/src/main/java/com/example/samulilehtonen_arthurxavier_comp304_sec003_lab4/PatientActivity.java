@@ -26,6 +26,9 @@ public class PatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
+        assert getSupportActionBar() != null;   //null check
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         patientId = (EditText) findViewById(R.id.txtPatientId);
         firstName = (EditText) findViewById(R.id.txtPatientFirstName);
         lastName = (EditText) findViewById(R.id.txtPatientLastName);
@@ -111,5 +114,10 @@ public class PatientActivity extends AppCompatActivity {
         } else {
             Toast.makeText(getApplicationContext(), "Fill all fields!", Toast.LENGTH_LONG).show();
         }
+    }
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }
