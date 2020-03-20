@@ -57,7 +57,6 @@ public class  UpdateInfoActivity extends AppCompatActivity {
         for(Patient patient : patients){
             //condition to display the info if id is found
             if (patient.getId() == Integer.parseInt(updPatientId.getText().toString())){
-                System.out.println("LOL");
                 updPatient = patient.getId();
 
                 updFirstName.setText(patient.getFirst_name());
@@ -85,7 +84,7 @@ public class  UpdateInfoActivity extends AppCompatActivity {
         patient.setId(updPatient);
 
         //Check if all the fields are filled and then update info
-        if(!updFirstName.equals("") && !updLastName.equals("") && !updDept.equals("") && !updNurseId.equals("") && !updRoom.equals("")){
+        if(!updFirstName.getText().toString().equals("") && !updLastName.getText().toString().equals("") && !updDept.getText().toString().equals("") && !updNurseId.getText().toString().equals("") && !updRoom.getText().toString().equals("")){
             patient.setFirst_name(updFirstName.getText().toString());
             patient.setLast_name(updLastName.getText().toString());
             patient.setDepartment(updDept.getText().toString());
