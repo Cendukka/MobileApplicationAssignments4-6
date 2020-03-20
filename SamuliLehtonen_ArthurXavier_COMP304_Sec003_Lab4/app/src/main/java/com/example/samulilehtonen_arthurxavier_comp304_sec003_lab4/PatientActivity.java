@@ -102,9 +102,11 @@ public class PatientActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Nurse ID is not valid!", Toast.LENGTH_LONG).show();
+                    nurseId.getText().clear();
                 }
             } else {
                 Toast.makeText(getApplicationContext(), "Patient ID already taken!", Toast.LENGTH_LONG).show();
+                patientId.getText().clear();
             }
         } else {
             Toast.makeText(getApplicationContext(), "Fill all fields!", Toast.LENGTH_LONG).show();

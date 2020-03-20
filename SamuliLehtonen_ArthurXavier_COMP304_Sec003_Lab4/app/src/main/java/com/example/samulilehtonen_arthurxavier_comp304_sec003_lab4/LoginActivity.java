@@ -108,13 +108,14 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "User Added succesfully", Toast.LENGTH_LONG).show();
 
                 //clear the register textFields
-                nurseIdRegister.setText("");
-                nursePasswordRegister.setText("");
-                this.nurseFirstName.setText("");
-                this.nurseLastName.setText("");
-                this.nurseDepartment.setText("");
+                nurseIdRegister.getText().clear();
+                nursePasswordRegister.getText().clear();
+                this.nurseFirstName.getText().clear();
+                this.nurseLastName.getText().clear();
+                this.nurseDepartment.getText().clear();
             } else {
                 Toast.makeText(getApplicationContext(), "NurseID already taken!", Toast.LENGTH_LONG).show();
+                nurseIdRegister.getText().clear();
             }
         } else {
             Toast.makeText(getApplicationContext(), "Fill all fields!", Toast.LENGTH_LONG).show();
@@ -150,13 +151,15 @@ public class LoginActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Logged in succesfully", Toast.LENGTH_LONG).show();
                 //clear the register textFields
-                nurseIdLogin.setText("");
-                nursePasswordLogin.setText("");
+                nurseIdLogin.getText().clear();
+                nursePasswordLogin.getText().clear();
 
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
             } else {
                 Toast.makeText(getApplicationContext(), "Given ID and password doesn't match", Toast.LENGTH_LONG).show();
+                nurseIdLogin.getText().clear();
+                nursePasswordLogin.getText().clear();
             }
 
         } else {
