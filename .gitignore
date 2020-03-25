@@ -87,6 +87,7 @@ lint/tmp/
 # Windows thumbnail db
 Thumbs.db
 
+google_maps_api.xml
 
 output.json 
 
