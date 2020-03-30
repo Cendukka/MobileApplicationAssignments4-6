@@ -8,25 +8,36 @@
     android:layout_height="match_parent"
     tools:context=".MapsActivity">
 
-<LinearLayout
+<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
+        <Spinner
+            android:id="@+id/mapMenu"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@color/colorPrimary"
+            android:dropDownSelector="@drawable/ic_launcher_background" />
+
         <EditText
+            android:id="@+id/editText"
             android:layout_width="248dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_weight="0.5"
-            android:inputType="textPersonName"
-            android:hint="Search Location" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="200dp"
+            android:hint="Search Location"
+            android:inputType="textPersonName" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_alignParentBottom= "true"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentRight= "true"
             android:text="Search" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
 </fragment>
