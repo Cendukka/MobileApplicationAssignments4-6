@@ -178,6 +178,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
     public void searchLocation(View view) {
+        mMap.clear();
         EditText locationSearch = (EditText) findViewById(R.id.editText);
         String location = locationSearch.getText().toString();
         List<Address> addressList = null;
