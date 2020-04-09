@@ -28,11 +28,13 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        customerName = (EditText) findViewById(R.id.txtName);
-        customerPhone = (EditText) findViewById(R.id.txtPhone);
-        customerEmail = (EditText) findViewById(R.id.txtEmail);
+        customerName = (EditText) findViewById(R.id.editName);
+        customerPhone = (EditText) findViewById(R.id.editPhone);
+        customerEmail = (EditText) findViewById(R.id.editEmail);
         productsResume = (TextView) findViewById(R.id.txtProductResume);
         submit = (ImageButton) findViewById(R.id.btnFinish);
+
+        productsResume.setText(ProductsActivity.resume);
 
         context = getApplicationContext();
         intentFilter = new IntentFilter();
@@ -48,21 +50,26 @@ public class InfoActivity extends AppCompatActivity {
 
                 if(!custName.equals("") && !cutPhone.equals("")){
                     String custNameEdit = custName.substring(0, 1).toUpperCase() + custName.substring(1).toLowerCase();
-                    String submitedSMS = "Thank you for your purchase, "+custNameEdit+" ! We will inform you when we have sent your ordered items!";
+                    String submittedSMS = "Thank you for your purchase, "+custNameEdit+" ! We will inform you when we have sent your ordered items!\n" + ProductsActivity.resume;
                     //String submitedSMS = custName;
-                    String submitedEMAIL = "Thank you for your purchase! We will inform you when we have sent your ordered items!";
+                    String submittedEMAIL = "Thank you for your purchase, " + custNameEdit +" ! We will inform you when we have sent your ordered items!";
 
                     try{
-                        sendMsg(submitedSMS, "+15555215554");
+                        sendMsg(submittedSMS, "+15555215554");
+
+                        Intent it = new Intent(Intent.ACTION_SEND);
+                        it.putExtra(Intent.EXTRA_EMAIL, new String[]{customerEmail.getText().toString()});
+                        it.putExtra(Intent.EXTRA_SUBJECT,"SA Store Purchase!");
+                        it.putExtra(Intent.EXTRA_TEXT,submittedEMAIL + "\n\n" + ProductsActivity.resume);
+                        it.setType("message/rfc822");
+                        startActivity(Intent.createChooser(it,"Choose Mail App"));
+
                     }catch (Exception e){
                         Toast.makeText(context, "Something went wrong while sending SMS. Check permissions and Try again.", Toast.LENGTH_LONG).show();
                     }
                 }else{
                     Toast.makeText(context, "Fill all fields", Toast.LENGTH_SHORT).show();
                 }
-
-
-
             }
         });
 
