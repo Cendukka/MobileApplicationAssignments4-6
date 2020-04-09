@@ -38,5 +38,19 @@ public class ProductsActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        cellphoneButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProductsActivity.this, InfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
+    public void buyCellphone(View view){
+
+    }
+
 }
