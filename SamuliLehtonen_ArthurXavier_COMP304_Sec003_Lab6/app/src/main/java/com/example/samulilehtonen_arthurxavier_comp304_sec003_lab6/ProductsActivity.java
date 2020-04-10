@@ -22,7 +22,7 @@ public class ProductsActivity extends AppCompatActivity {
     ImageButton cartButton;
     EditText inputCellphone, inputLaptop, inputTV, inputTablet;
 
-    public static String resume = "Purchase Resume:\n";
+    public static String resume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +50,27 @@ public class ProductsActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+
+                                String temp = "Purchase Resume:\n";
+
                                 if(Integer.parseInt(inputCellphone.getText().toString()) > 0){
-                                    resume += "Cellphone: " + inputCellphone.getText().toString() + "\n";
+                                    temp += "Cellphone: " + inputCellphone.getText().toString() + "\n";
+                                    inputCellphone.setText("0");
                                 }
                                 if(Integer.parseInt(inputLaptop.getText().toString()) > 0){
-                                    resume += "Laptop: " + inputLaptop.getText().toString() + "\n";
+                                    temp += "Laptop: " + inputLaptop.getText().toString() + "\n";
+                                    inputLaptop.setText("0");
                                 }
                                 if(Integer.parseInt(inputTV.getText().toString()) > 0){
-                                    resume += "TV: " + inputTV.getText().toString() + "\n";
+                                    temp += "TV: " + inputTV.getText().toString() + "\n";
+                                    inputTV.setText("0");
                                 }
                                 if(Integer.parseInt(inputTablet.getText().toString()) > 0){
-                                    resume += "Tablet: " + inputTablet.getText().toString();
+                                    temp += "Tablet: " + inputTablet.getText().toString();
+                                    inputTablet.setText("0");
                                 }
+
+                                resume = temp;
 
                                 Intent intent = new Intent(ProductsActivity.this, InfoActivity.class);
                                 startActivity(intent);
